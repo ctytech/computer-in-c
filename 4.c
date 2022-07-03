@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 int main (void) {
 
 	printf ("Booting up COS.\n");
@@ -14,11 +16,14 @@ int main (void) {
 	printf ("Ian\n");
 	printf ("Guest\n");
 	
-	int user, program;
+	int userGuest, userIan, program, subProgram;
+	char login[6], loginIan[4] = "Ian", loginGuest[6] = "Guest", yesOrNo;
 
-	scanf ("%i", &user);
+	scanf (" %s", login);
+	userIan = strcmp ( login, loginIan );
+	userGuest = strcmp ( login, loginGuest );
 
-	if ( user == 1 || user == 2 ) {
+	if ( userIan == 0 || userGuest == 0 ) {
 		printf ("Welcome!\n");
 
 		printf ("	Which program?\n");
@@ -29,6 +34,32 @@ int main (void) {
 		printf ("	Exit?\n");
 		
 		scanf ("%i", &program);
+		
+		if ( program == 3 ) {
+
+			printf ("Choose which game you want to play:\n	0. Quit\n	1. Riddles\n	2. Tic Tac Toe\n	3. Text Adventure\n	10. Next page...\n	Game No.");
+			scanf ("%i", &subProgram);
+
+			if ( subProgram = 1 ) {
+
+				printf ("Welcome to Riddles!\nDo you want to start?\n");
+				scanf (" %c", &yesOrNo);
+				if ( yesOrNo == 'Y' )
+					printf ("Hello!\n");
+
+			}
+		}
+
+		if ( program == 2 ) {
+
+			printf ("Welcome to Paint\nStart? (Y/N) ");
+			scanf (" %c", &yesOrNo);
+			if ( yesOrNo == 'Y')
+				printf ("Welcome!\n");
+			if ( yesOrNo == 'N' )
+				printf ("Ok!\n");
+
+		}
 
 		if ( program == 1 ) {
 			char operator;
